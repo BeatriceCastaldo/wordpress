@@ -11,8 +11,6 @@
 {
     // body element
     const body = document.body;
-    
-    console.log('cacca');
 
     // helper functions
     const MathUtils = {
@@ -45,6 +43,10 @@
     
     // update the mouse position
     window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
+    
+    document.addEventListener("DOMContentLoaded", function(){
+        console.log('cacca');
+	});
     
     // gets the distance from the current mouse position to the last recorded mouse position
     const getMouseDistance = () => MathUtils.distance(mousePos.x,mousePos.y,lastMousePos.x,lastMousePos.y);
