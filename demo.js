@@ -11,6 +11,8 @@
 {
     // body element
     const body = document.body;
+    
+    console.log('cacca');
 
     // helper functions
     const MathUtils = {
@@ -34,8 +36,6 @@
             posy = ev.clientY + body.scrollTop + docEl.scrollTop;
         }
         return {x: posx, y: posy};
-    
-        console.log(posx, posy);
     }
 
     // mousePos: current mouse position
