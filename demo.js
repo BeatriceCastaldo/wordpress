@@ -24,7 +24,7 @@
     const getMousePos = (ev) => {
         let posx = 0;
         let posy = 0;
-        if (!ev) ev = document.event;
+        if (!ev) ev = window.event;
         if (ev.pageX || ev.pageY) {
             posx = ev.pageX;
             posy = ev.pageY;
@@ -42,11 +42,7 @@
     let mousePos = lastMousePos = cacheMousePos = {x: 0, y: 0};
     
     // update the mouse position
-    document.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
-    
-    document.addEventListener("DOMContentLoaded", function(){
-        console.log('cacca');
-	});
+    window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
     
     // gets the distance from the current mouse position to the last recorded mouse position
     const getMouseDistance = () => MathUtils.distance(mousePos.x,mousePos.y,lastMousePos.x,lastMousePos.y);
@@ -68,7 +64,7 @@
         }
         initEvents() {
             // on resize get updated sizes/position
-            document.addEventListener('resize', () => this.resize());
+            window.addEventListener('resize', () => this.resize());
         }
         resize() {
             // reset styles
