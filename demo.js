@@ -34,6 +34,8 @@
             posy = ev.clientY + body.scrollTop + docEl.scrollTop;
         }
         return {x: posx, y: posy};
+    
+        console.log(posx, posy);
     }
 
     // mousePos: current mouse position
