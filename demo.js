@@ -44,7 +44,7 @@
     // update the mouse position
     window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
     
-    document.addEventListener("DOMContentLoaded", function(){
+    window.addEventListener("DOMContentLoaded", function(){
         console.log('cacca');
 	});
     
