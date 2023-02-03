@@ -24,7 +24,7 @@
     const getMousePos = (ev) => {
         let posx = 0;
         let posy = 0;
-        if (!ev) ev = window.event;
+        if (!ev) ev = document.event;
         if (ev.pageX || ev.pageY) {
             posx = ev.pageX;
             posy = ev.pageY;
@@ -42,9 +42,9 @@
     let mousePos = lastMousePos = cacheMousePos = {x: 0, y: 0};
     
     // update the mouse position
-    window.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
+    document.addEventListener('mousemove', ev => mousePos = getMousePos(ev));
     
-    window.addEventListener("DOMContentLoaded", function(){
+    document.addEventListener("DOMContentLoaded", function(){
         console.log('cacca');
 	});
     
@@ -68,7 +68,7 @@
         }
         initEvents() {
             // on resize get updated sizes/position
-            window.addEventListener('resize', () => this.resize());
+            document.addEventListener('resize', () => this.resize());
         }
         resize() {
             // reset styles
