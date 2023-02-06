@@ -1,4 +1,4 @@
-<script type="text/javascript">
+
 /**
 * demo.js
 * http://www.codrops.com
@@ -185,4 +185,4 @@
         new ImageTrail();
     });
 }
-</script>
+
