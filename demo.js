@@ -1,3 +1,4 @@
+<script type="text/javascript">
 /**
 * demo.js
 * http://www.codrops.com
@@ -25,13 +26,11 @@
         let posx = 0;
         let posy = 0;
         if (!ev) ev = window.event;
-        if (ev.pageX || ev.pageY) {
-            posx = ev.pageX;
-            posy = ev.pageY;
-        }
-        else if (ev.clientX || ev.clientY) 	{
-            posx = ev.clientX + body.scrollLeft + docEl.scrollLeft;
-            posy = ev.clientY + body.scrollTop + docEl.scrollTop;
+        if (ev.clientX || ev.clientY)  {
+					const parent = document.querySelector('.playground-gallery');
+					const bounds = parent.getBoundingClientRect();
+    			posx = ev.clientX - bounds.left;
+    			posy = ev.clientY - bounds.top;
         }
         return {x: posx, y: posy};
     }
@@ -68,7 +67,7 @@
         }
         resize() {
             // reset styles
-            TweenMax.set(this.DOM.el, this.defaultStyle);
+            TweenMax2.set(this.DOM.el, this.defaultStyle);
             // get sizes/position
             this.getRect();
         }
@@ -77,7 +76,7 @@
         }
         isActive() {
             // check if image is animating or if it's visible
-            return TweenMax.isTweening(this.DOM.el) || this.DOM.el.style.opacity != 0;
+            return TweenMax2.isTweening(this.DOM.el) || this.DOM.el.style.opacity != 0;
         }
     }
 
@@ -134,9 +133,11 @@
         }
         showNextImage() {
             // show image at position [this.imgPosition]
+
             const img = this.images[this.imgPosition];
+                    
             // kill any tween on the image
-            TweenMax.killTweensOf(img.DOM.el);
+            TweenMax2.killTweensOf(img.DOM.el);
 
             new TimelineMax()
             // show the image
@@ -184,3 +185,4 @@
         new ImageTrail();
     });
 }
+</script>
